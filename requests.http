@@ -1,0 +1,17 @@
+POST http://localhost:5000/post
+content-type: application/json
+
+{
+    "id":2,
+    "name":"Rodolfo"
+}
+
+###
+
+PATCH  http://localhost:5000/patch
+content-type:application/json
+
+{
+    "id":3,
+    "name":"rodolfa"
+}

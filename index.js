@@ -1,22 +1,45 @@
-const { json } = require("express");
 const express = require("express");
+const banco =[
+    {
+        id:1,
+        name:"Rodolfo"
+    },
+    {
+        id:2,
+        name:"Rodolfo"
+    }
+]
 
 const app= express();
 
-app.head(json())
+app.use(express.json())
 
 app.get("/",(req,resp)=>{
+resp.send(
+  banco
+)
+})
+app.post("/post",(req,resp)=>{
+const {id,name} = req.body
+banco.push({
+    id,
+    name})
+
+resp.status(200).send(
+    banco
+)
+})
+
+app.patch("/patch",(req,resp)=>{
+    const {id,name} = req.body;
+
+    banco.find((i)=>i.id === id)?
+     resp.status(500).send("Já está cadastrado"):
+     banco.push({id,
+        name})&&resp.send(banco)
+
+
 
 })
 
-app.post("",(req,resp)=>{
-
-})
-
-app.put("",(req,resp)=>{
-
-})
-
-app.patch("",(req,resp)=>{
-    
-})
+app.listen(5000)
