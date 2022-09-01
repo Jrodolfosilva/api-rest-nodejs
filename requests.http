@@ -2,8 +2,8 @@ POST http://localhost:5000/post
 content-type: application/json
 
 {
-    "id":2,
-    "name":"Rodolfo"
+    "id":"25",
+    "name":"Rodolfpp"
 }
 
 ###
@@ -12,6 +12,12 @@ PATCH  http://localhost:5000/patch
 content-type:application/json
 
 {
-    "id":3,
+    "id":"1",
     "name":"rodolfa"
 }
+
+
+###
+GET http://localhost:5000/
+Content-Type: application/json
+
